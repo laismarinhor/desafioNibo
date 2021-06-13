@@ -1,0 +1,53 @@
+.container{
+    min-height: 20rem;
+}
+
+.titulo{
+    text-align: center;
+    color: #575555;
+    font-family: inherit;
+    margin: auto;
+    margin-top: 4rem;
+}
+
+.list{
+    padding: 0;
+    margin: 4rem 0;
+
+    .card{
+        background-color: #c0c0c030;
+        margin: 10px;
+    
+        .item-card{
+            margin: auto;
+            font-family: inherit;
+            color: #707070;
+        }
+        
+        .item-card.name{
+            font-size: 20px;
+        }
+        
+        .item-card.coach{
+            font-size: 12px;
+        }
+    }
+}
+
+.card{
+    background-color: #c0c0c030;
+
+    .item-card{
+        margin: auto;
+        font-family: inherit;
+        color: #707070;
+    }
+    
+    .item-card.name{
+        font-size: 20px;
+    }
+    
+    .item-card.coach{
+        font-size: 12px;
+    }
+}

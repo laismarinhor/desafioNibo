@@ -1,0 +1,32 @@
+.navbar{
+    padding: 10px 2rem;
+
+    p{
+        margin: 0;
+    }
+}
+
+.modal-header{
+    h4{
+        margin: auto;
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+
+    button{
+        background: none;
+        border: 1px solid #c0c0c0;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+}
+
+.modal-body{
+    .registro{
+        margin: 5px;
+
+        input{
+            margin: 10px;
+        }
+    }
+}

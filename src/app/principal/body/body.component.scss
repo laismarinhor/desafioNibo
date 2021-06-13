@@ -1,0 +1,93 @@
+.container{
+    min-height: 20rem;
+}
+
+.titulo{
+    text-align: center;
+    color: #575555;
+    font-family: inherit;
+    margin: auto;
+}
+
+.list{
+    .item .card{
+        background-color: #c0c0c030;
+        height: 45px;
+
+        .item-card{
+            margin: auto;
+            font-family: inherit;
+            color: #707070;
+            font-size: 16px;
+        }
+    }
+}
+
+.list.list-fase1 .card{
+    width: 50%;
+    margin: auto;
+}
+
+.list.list-fase2 .item .card{
+    background-color: #f5414130;
+}
+
+.btn{
+    width: 20%;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.modal-header{
+    h4{
+        margin: auto;
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+
+    button{
+        background: none;
+        border: 1px solid #c0c0c0;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+}
+
+.modal-body{
+    .mat-list-item{
+        border-bottom: 1px solid #c0c0c0;
+        text-align: center;
+    }
+
+    .step3{
+        .col-md-12{
+            margin: 0;
+
+            form{
+                margin: auto;
+
+                .col-md-4{
+                    text-align: center;
+                }
+
+                .col-md-4:last-child{
+                    text-align: left
+                }
+
+                .x{
+                    font-size: 23px;
+                }
+
+                input{
+                    width: inherit;
+                    margin-left: 10px;
+                }
+
+                button{
+                    margin-top: 2rem;
+                    border: 1px solid #c0c0c0;
+                }
+            }
+        }
+    }
+}

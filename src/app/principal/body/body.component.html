@@ -1,0 +1,132 @@
+<div class="row col-md-12 container">
+    <h2 class="titulo">
+        Campeonato da Lais!
+    </h2>
+
+    <div class="list list-fase0 row col-md-12">
+        <div class="item col-md-3" *ngFor="let time of fase0">
+            <div class="card">
+                <div class="item-card name">{{ time }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list list-fase1 row col-md-12">
+        <div class="item col-md-6" *ngFor="let time of fase1">
+            <div class="card">
+                <div class="item-card name">{{ time }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list list-fase2 row col-md-12 justify-content-center" *ngIf="fase === 2">
+        <div class="item col-md-6">
+            <div class="card">
+                <div class="item-card name">{{ campeao }}</div>
+            </div>
+        </div>
+    </div>
+
+    <button *ngIf="lista && fase === 0" type="button" class="btn btn-dark" (click)="game(content)">Iniciar Jogo</button>
+    <button *ngIf="fase === 1" type="button" class="btn btn-dark" (click)="final(content)">Jogo Final</button>
+    <button *ngIf="fase === 2" type="button" class="btn btn-dark" (click)="new()">Novo Campeonato</button>
+
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Novo Jogo</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" *ngIf="fase === 0">
+
+        <div class="step1" *ngIf="step === 0">
+            <p class="title">Escolha o primeiro time do duelo:</p>
+            <mat-selection-list #times [multiple]="false">
+                <mat-list-option *ngFor="let item of lista" [value]="item">
+                    <p (click)="select(item[0])">{{item[0]}}</p>
+                </mat-list-option>
+            </mat-selection-list>
+            
+        </div>
+
+        <div class="step2" *ngIf="step === 1">
+            <p class="title">Escolha o adversário do {{ time1 }} para o duelo:</p>
+            <mat-selection-list #times [multiple]="false">
+                <mat-list-option *ngFor="let item of lista" [value]="item">
+                    <p (click)="select(item[0])">{{item[0]}}</p>
+                </mat-list-option>
+            </mat-selection-list>
+            
+        </div>
+
+        <div class="step3" *ngIf="step === 2">
+            <p class="title">Placar:</p>
+            <div class="row col-md-12">
+                <form [formGroup]="partidaForm" class="row col-md-12">
+                    <div class="col-md-4">
+                        <label class="time">{{ time1 }}</label>
+                        <input formControlName="placar1" value="placar1" autofocus>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="x">x</label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="time">{{ time2 }}</label>
+                        <input formControlName="placar2" value="placar2">
+                    </div>
+                    <button type="submit" (click)="encerrarJogo(erro)" class="btn btn-light">Salvar</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="modal-body" *ngIf="fase === 1">
+
+        <div class="step3">
+            <p class="title">Placar da Final:</p>
+            <div class="row col-md-12">
+                <form [formGroup]="partidaForm" class="row col-md-12">
+                    <div class="col-md-4">
+                        <label class="time">{{ fase1[0] }}</label>
+                        <input formControlName="placar1" autofocus>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="x">x</label>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="time">{{ fase1[1] }}</label>
+                        <input formControlName="placar2" value="placar2">
+                    </div>
+                    <button type="submit" (click)="encerrarCampeonato(erro)" class="btn btn-light">Salvar</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+</ng-template>
+
+<ng-template #erro let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Novo Jogo</h4>
+    </div>
+
+    <div class="modal-body">
+
+        <div class="msg">
+            O jogo precisa ter um vencedor!
+        </div>
+        
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="close" aria-label="Close" (click)="fechar(content)">
+            <span aria-hidden="true">Ok</span>
+        </button>
+    </div>
+
+</ng-template>

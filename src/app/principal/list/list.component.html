@@ -1,0 +1,24 @@
+<div class="row col-md-12 container">
+
+    <app-header></app-header>
+
+    <div class="content" *ngIf="lista">
+        <h4 class="titulo">
+            Times cadastrados no Campeonato da Lais!
+        </h4>
+        <div class="list row col-md-12">
+            <div class="item col-md-4 justify-content-around" *ngFor="let time of lista">
+                <div class="card">
+                    <div class="item-card name">{{ time[0] }}</div>
+                    <div class="item-card coach">{{ time[1] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" *ngIf="!lista">
+        <h4 class="titulo">
+            Opss! Nenhum time ainda foi cadastrado :(
+        </h4>
+    </div>
+</div>
